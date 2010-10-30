@@ -2,11 +2,15 @@ PATH
   remote: .
   specs:
     ruby-botr (0.0.1)
+      json (>= 1.4.6)
+      nokogiri (>= 1.4.3)
 
 GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.2)
+    json (1.4.6)
+    nokogiri (1.4.3.1)
     rspec (2.0.1)
       rspec-core (~> 2.0.1)
       rspec-expectations (~> 2.0.1)
@@ -23,5 +27,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (>= 1.0.0)
+  json (>= 1.4.6)
+  nokogiri (>= 1.4.3)
   rspec (~> 2.0.0)
   ruby-botr!

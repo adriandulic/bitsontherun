@@ -3,7 +3,7 @@ require File.expand_path("../lib/ruby-botr/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "ruby-botr"
-  s.version     = Ruby::Botr::VERSION
+  s.version     = Botr::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Adrian Dulic']
   s.email       = ['adulic@gmail.com']
@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "ruby-botr"
+  
+  s.add_dependency "nokogiri", ">= 1.4.3"
+  s.add_dependency "json", ">= 1.4.6"
   
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rspec", "~> 2.0.0"
