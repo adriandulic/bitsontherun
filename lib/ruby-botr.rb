@@ -12,7 +12,7 @@ module Ruby
     VERSION = "v1"
     FORMATS = ["json", "xml"]
 
-    class API
+    class Base
       def initialize(key, secret)
         @key = key.to_s
         @secret = secret.to_s
