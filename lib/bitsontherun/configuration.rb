@@ -1,5 +1,5 @@
-module Botr
-  module Config
+module BitsOnTheRun
+  class Configuration
     @config = {}
     
     class << self

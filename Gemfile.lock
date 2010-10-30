@@ -1,13 +1,15 @@
 PATH
   remote: .
   specs:
-    ruby-botr (0.0.1)
+    bitsontherun (0.0.1)
+      curb
       json (>= 1.4.6)
       nokogiri (>= 1.4.3)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    curb (0.7.8)
     diff-lcs (1.1.2)
     json (1.4.6)
     nokogiri (1.4.3.1)
@@ -26,8 +28,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitsontherun!
   bundler (>= 1.0.0)
+  curb
   json (>= 1.4.6)
   nokogiri (>= 1.4.3)
   rspec (~> 2.0.0)
-  ruby-botr!

@@ -1,4 +1,4 @@
-module Botr
+module BitsOnTheRun
   class Call
     @params = {}
     
@@ -15,12 +15,12 @@ module Botr
           Net::HTTPPreconditionFailed,
           Net::HTTPInternalServerError,
           Net::HTTPNotImplemented
-            then response
+            then response.body
       else
         nil
       end
       
-      Botr::Parser.parse(response, @params[:api_format])
+      Parser.parse(response, @params[:api_format])
     end
     
     def method(method, params)
@@ -40,7 +40,7 @@ module Botr
         defaults = {
           :api_nonce => "%08d" % rand(99999999),
           :api_timestamp => Time.now.to_i,
-          :api_key => Config.get(:key),
+          :api_key => Configuration.get(:key),
           :api_format => "json",
           :api_kit => "ruby-%s" % VERSION
         }
@@ -51,7 +51,7 @@ module Botr
 
       def build_signature
         signature = escape_params
-        Digest::SHA1.hexdigest(signature + Config.get(:secret))
+        Digest::SHA1.hexdigest(signature + Configuration.get(:secret))
       end
 
       def escape_params

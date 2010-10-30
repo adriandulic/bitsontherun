@@ -4,9 +4,7 @@ describe "API call to retrieve version" do
   it_should_behave_like "Successful response"
   
   before(:each) do
-    @call = Botr::API.new(:call)
-    @call.method('version')
-    @response = @call.execute
+    @response = BitsOnTheRun::API.call('version')
   end
   
   it "should contain information about API current version" do
@@ -18,9 +16,7 @@ describe "API call to retrieve account" do
   it_should_behave_like "Successful response"
   
   before(:each) do
-    @call = Botr::API.new(:call)
-    @call.method('accounts/show', :account_login => 'bajeczka')
-    @response = @call.execute
+    @response = BitsOnTheRun::API.call('accounts/show', :account_login => 'bajeczka')
   end
   
   it "should contain information about specific account" do
