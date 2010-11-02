@@ -1,14 +1,24 @@
 module BitsOnTheRun
-  class Configuration
-    @config = {}
+  module Configuration
+    extend self
     
-    class << self
-      def method_missing(name, *args)  
-        @config[name] = args.first
+    def run
+      @@config = {
+        :key => "",
+        :secret => "",
+        :format => "json"
+      }
+      if block_given?
+        yield self
       end
-      
-      def get(name)
-        @config[name]
+    end
+    
+    def method_missing(name, *args)
+      name = name.to_sym
+      if args.empty?
+        @@config[name]
+      else
+        @@config[name] = args.first.to_s
       end
     end
   end

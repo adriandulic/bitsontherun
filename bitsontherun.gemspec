@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "bitsontherun"
   
-  s.add_dependency "nokogiri", ">= 1.4.3"
   s.add_dependency "json", ">= 1.4.6"
   s.add_dependency "curb"
   
