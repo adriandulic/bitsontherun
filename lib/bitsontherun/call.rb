@@ -4,7 +4,6 @@ require 'net/http'
 module BitsOnTheRun
   class Call < Base
     def initialize
-      @params = {}
       @defaults = {
         :api_nonce => "%08d" % rand(99999999),
         :api_timestamp => Time.now.to_i,
@@ -12,6 +11,7 @@ module BitsOnTheRun
         :api_format => Configuration.format,
         :api_kit => "ruby-%s" % VERSION
       }
+      super
     end
     
     def execute
