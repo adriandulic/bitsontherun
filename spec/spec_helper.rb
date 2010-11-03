@@ -7,6 +7,7 @@ Rspec.configure do |c|
 end
 
 BitsOnTheRun::Configuration.run do |c|
-  c.key     "your api key"
-  c.secret  "your api secret"
+  c.key     "Ax4kflJt"
+  c.secret  "nUwCMz1UaciitFj6uEEpoXHn"
+  c.format  "json"
 end
