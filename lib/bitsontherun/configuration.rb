@@ -3,8 +3,8 @@ module BitsOnTheRun
     extend self
     
     def run
-      @@config = {
-        :key => "",
+      @config = {
+        :key    => "",
         :secret => "",
         :format => "json"
       }
@@ -16,9 +16,9 @@ module BitsOnTheRun
     def method_missing(name, *args)
       name = name.to_sym
       if args.empty?
-        @@config[name]
+        @config[name]
       else
-        @@config[name] = args.first.to_s
+        @config[name] = args.first
       end
     end
   end
