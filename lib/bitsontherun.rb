@@ -15,6 +15,10 @@ module BitsOnTheRun
   autoload :Parser,         "bitsontherun/parser"
   
   class Base
+    def initialize
+      @params = {}
+    end
+    
     def method(method, params = {})
       @method = method.to_s
       @params.merge!(params.to_hash)
@@ -22,8 +26,7 @@ module BitsOnTheRun
     
     protected
       def build_url
-        parameters = build_params
-        URI.escape("#{PROTOCOL}://#{URL}/#{API_VERSION}/#{@method}?#{parameters}")
+        URI.escape("#{PROTOCOL}://#{URL}/#{API_VERSION}/#{@method}?#{build_params}")
       end
       
       def build_params
