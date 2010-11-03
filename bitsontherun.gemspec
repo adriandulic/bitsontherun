@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Adrian Dulic']
   s.email       = ['adulic@gmail.com']
   s.homepage    = "http://github.com/adriandulic/bitsontherun"
-  s.summary     = "Bits on the run API implementation in Ruby"
-  s.description = "Bits on the run API implementation in Ruby"
+  s.summary     = "BitsOnTheRun.com API implementation in Ruby"
+  s.description = "BitsOnTheRun.com API implementation in Ruby"
   
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "bitsontherun"
