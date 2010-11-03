@@ -1,10 +1,11 @@
 module BitsOnTheRun
   class Store < Base
     def initialize
-      @params = {}
+      @response = nil
       @defaults = {
         :api_format => Configuration.format
       }
+      super
     end
     
     def file(filename)
@@ -14,7 +15,7 @@ module BitsOnTheRun
     def execute
       build_token
       file = Curl::PostField.file("file", @filename)
-      response = Curl::Easy.http_post(build_url, file) do |curl|
+      response = Curl::Easy.http_post(build_store_url, file) do |curl|
         curl.multipart_form_post = true
       end.body_str
       Response.new(response)
@@ -24,19 +25,18 @@ module BitsOnTheRun
       def build_token
         call = API.new(:call)
         call.method(@method, @params)
-        @params = call.execute.hash
+        @response = call.execute
       end
       
-      def build_url
-        protocol = @params[:link][:protocol]
-        address = @params[:link][:address]
-        path = @params[:link][:path]
+      def build_store_url
+        protocol = @response.find(:link, :protocol)
+        address = @response.find(:link, :address)
+        path = @response.find(:link, :path)
         
-        @defaults[:key] = @params[:link][:query][:key]
-        @defaults[:token] = @params[:link][:query][:token]
-        
-        parameters = escape_params
-        "#{protocol}://#{address}#{path}?#{parameters}"
+        @defaults[:key] = @response.find(:link, :query, :key)
+        @defaults[:token] = @response.find(:link, :query, :token)
+      
+        URI.escape("#{protocol}://#{address}#{path}?#{escape_params}")
       end
   end
 end
