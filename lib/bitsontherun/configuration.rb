@@ -2,12 +2,13 @@ module BitsOnTheRun
   module Configuration
     extend self
     
+    @@config = {
+      :key    => "",
+      :secret => "",
+      :format => "json"
+    }
+    
     def run
-      @config = {
-        :key    => "",
-        :secret => "",
-        :format => "json"
-      }
       if block_given?
         yield self
       end
@@ -16,9 +17,12 @@ module BitsOnTheRun
     def method_missing(name, *args)
       name = name.to_sym
       if args.empty?
-        @config[name]
+        @@config[name]
       else
-        @config[name] = args.first
+        if name.to_s =~ /^(.+)=$/
+          name = $1.to_sym
+        end
+        @@config[name] = args.first
       end
     end
   end
