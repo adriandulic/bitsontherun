@@ -6,8 +6,6 @@ Rspec.configure do |c|
   c.mock_with :rspec
 end
 
-BitsOnTheRun::Configuration.run do |c|
-  c.key     "Ax4kflJt"
-  c.secret  "nUwCMz1UaciitFj6uEEpoXHn"
-  c.format  "json"
-end
+BitsOnTheRun::Configuration.key    = "Ax4kflJt"
+BitsOnTheRun::Configuration.secret = "nUwCMz1UaciitFj6uEEpoXHn"
+
