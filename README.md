@@ -11,10 +11,8 @@ Gemfile:
 
 Setup:
 
-    BitsOnTheRun.Configuration.run do |c|
-        c.key       'your api key'
-        c.secret    'your api secret'
-    end
+    BitsOnTheRun::Configuration.key = "your api key"
+    BitsOnTheRun::Configuration.secret = "your api secret"
 
 ## Usage
 
