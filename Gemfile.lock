@@ -11,23 +11,21 @@ GEM
     curb (0.7.8)
     diff-lcs (1.1.2)
     json (1.4.6)
-    rspec (2.0.1)
-      rspec-core (~> 2.0.1)
-      rspec-expectations (~> 2.0.1)
-      rspec-mocks (~> 2.0.1)
-    rspec-core (2.0.1)
-    rspec-expectations (2.0.1)
-      diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.1)
-      rspec-core (~> 2.0.1)
-      rspec-expectations (~> 2.0.1)
+    rspec (2.3.0)
+      rspec-core (~> 2.3.0)
+      rspec-expectations (~> 2.3.0)
+      rspec-mocks (~> 2.3.0)
+    rspec-core (2.3.1)
+    rspec-expectations (2.3.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bitsontherun!
-  bundler (>= 1.0.0)
+  bundler (>= 1.0.7)
   curb
   json (>= 1.4.6)
-  rspec (~> 2.0.0)
+  rspec (~> 2.3.0)

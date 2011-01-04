@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.add_dependency "json", ">= 1.4.6"
   s.add_dependency "curb"
   
-  s.add_development_dependency "bundler", ">= 1.0.0"
-  s.add_development_dependency "rspec", "~> 2.0.0"
+  s.add_development_dependency "bundler", ">= 1.0.7"
+  s.add_development_dependency "rspec", "~> 2.3.0"
   
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
