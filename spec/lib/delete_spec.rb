@@ -4,11 +4,8 @@ describe "API call to delete video files" do
   it_should_behave_like "Successful response"
   
   before do
-    @responses = []
-    BitsOnTheRun::store('videos/create', 'spec/test.mp4')
-    BitsOnTheRun::call('videos/list').videos.each do |video|
-      @responses << BitsOnTheRun::call('videos/delete', :video_key => video.key)
-    end
+    @video = BitsOnTheRun::store('videos/create', 'spec/test.mp4')
+    @responses = BitsOnTheRun::call('videos/delete', :video_key => @video.media.key)
   end
   
   it "should contain confirmation about deleted video" do
