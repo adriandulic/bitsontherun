@@ -5,18 +5,17 @@ BitsOnTheRun is an implementation of [bitsontherun.com](bitsontherun.com) API in
 
 ## Install
 
-    gem install bitsontherun
-
 Gemfile:
-
-    gem 'bitsontherun', :git => 'http://github.com/adriandulic/bitsontherun.git'
-
-      or
 
     gem 'bitsontherun'
 
-Setup:
+Run:
 
+    bundle install
+
+Add in _config/initializers/bitsontherun.rb_ file:
+
+    # Bitsonthrun configuration
     BitsOnTheRun::Configuration.key = "your api key"
     BitsOnTheRun::Configuration.secret = "your api secret"
 
