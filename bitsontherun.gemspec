@@ -14,11 +14,11 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "bitsontherun"
   
-  s.add_dependency "json", ">= 1.4.6"
-  s.add_dependency "curb"
+  s.add_dependency "json", "1.5.1"
+  s.add_dependency "curb", "0.7.10"
   
-  s.add_development_dependency "bundler", ">= 1.0.7"
-  s.add_development_dependency "rspec", "~> 2.3.0"
+  s.add_development_dependency "bundler", "1.0.10"
+  s.add_development_dependency "rspec", "2.4.0"
   
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact

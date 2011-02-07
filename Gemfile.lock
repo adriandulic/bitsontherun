@@ -2,30 +2,28 @@ PATH
   remote: .
   specs:
     bitsontherun (0.0.1)
-      curb
-      json (>= 1.4.6)
+      curb (= 0.7.10)
+      json (= 1.5.1)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    curb (0.7.8)
+    curb (0.7.10)
     diff-lcs (1.1.2)
-    json (1.4.6)
-    rspec (2.3.0)
-      rspec-core (~> 2.3.0)
-      rspec-expectations (~> 2.3.0)
-      rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.1)
-    rspec-expectations (2.3.0)
+    json (1.5.1)
+    rspec (2.4.0)
+      rspec-core (~> 2.4.0)
+      rspec-expectations (~> 2.4.0)
+      rspec-mocks (~> 2.4.0)
+    rspec-core (2.4.0)
+    rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.3.0)
+    rspec-mocks (2.4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bitsontherun!
-  bundler (>= 1.0.7)
-  curb
-  json (>= 1.4.6)
-  rspec (~> 2.3.0)
+  bundler (= 1.0.10)
+  rspec (= 2.4.0)
