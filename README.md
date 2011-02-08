@@ -1,15 +1,19 @@
 BitsOnTheRun
 ==============
 
-BitsOnTheRun is an implementation of [bitsontherun.com](bitsontherun.com) API in Ruby.
+BitsOnTheRun is an implementation of [bitsontherun.com](http://bitsontherun.com) API in Ruby.
 
 ## Install
 
-Gemfile:
+Just run the following command:
+
+    gem install bitsontherun
+
+Then in your Gemfile add the following line:
 
     gem 'bitsontherun'
 
-Run:
+And finally run:
 
     bundle install
 
@@ -21,15 +25,16 @@ Add in _config/initializers/bitsontherun.rb_ file:
 
 ## Usage
 
-Basic:
+Basic call:
 
     BitsOnTheRun::call('version') => {:status => "ok", :version => "X.X.X"}
-    
-    BitsOnTheRun::store('videos/create', 'video.mp4') => {:status => "ok", ...}
-    
     BitsOnTheRun::call('videos/update', :video_key => 'your video key', :title => 'New title for video').ok? => true
 
-Extended:
+Basic store:
+
+    BitsOnTheRun::store('videos/create', 'video.mp4') => {:status => "ok", ...}
+
+Extended call methods:
 
     call = BitsOnTheRun::API.new(:call)
     call.method('videos/list')
@@ -43,6 +48,8 @@ Extended:
     call.method('videos/update', :video_key => 'your video key', :title => 'New title for video')
     call.execute
     
+Extended store methods:
+
     call = BitsOnTheRun::API.new(:store)
     call.method('videos/create')
     call.file('video.mp4')
@@ -81,3 +88,4 @@ Find methods:
     response.videos => [<BitsOnTheRun::Response>, <BitsOnTheRun::Response>, ...]
     response.videos.first => <BitsOnTheRun::Response>
     repsonse.videos.first.title => "Video title"
+
