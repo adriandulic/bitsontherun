@@ -1,26 +1,30 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/bitsontherun/version", __FILE__)
+$:.push File.expand_path("../lib", __FILE__)
+require "bitsontherun/version"
 
 Gem::Specification.new do |s|
   s.name        = "bitsontherun"
   s.version     = BitsOnTheRun::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Adrian Dulic']
-  s.email       = ['adulic@gmail.com']
+  s.authors     = ["Adrian Dulić"]
+  s.email       = ["adulic@gmail.com"]
   s.homepage    = "http://github.com/adriandulic/bitsontherun"
-  s.summary     = "BitsOnTheRun.com API implementation in Ruby"
-  s.description = "BitsOnTheRun.com API implementation in Ruby"
-  
+  s.summary     = %q{BitsOnTheRun.com API implementation in Ruby}
+  s.description = %q{BitsOnTheRun.com API implementation in Ruby}
+
+  s.extra_rdoc_files = ["LICENSE", "README.markdown"]
+
   s.required_rubygems_version = ">= 1.3.6"
-  s.rubyforge_project         = "bitsontherun"
-  
+  s.rubyforge_project = s.name
+
   s.add_dependency "json", "1.5.1"
   s.add_dependency "curb", "0.7.10"
-  
+
   s.add_development_dependency "bundler", "1.0.10"
-  s.add_development_dependency "rspec", "2.4.0"
-  
-  s.files        = `git ls-files`.split("\n")
-  s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  s.require_path = 'lib'
+  s.add_development_dependency "rspec", "2.5.0"
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
 end
