@@ -7,8 +7,8 @@ module BitsOnTheRun
       @defaults = {
         :api_nonce => "%08d" % rand(99999999),
         :api_timestamp => Time.now.to_i,
-        :api_key => Configuration.key,
-        :api_format => Configuration.format,
+        :api_key => BitsOnTheRun.key,
+        :api_format => BitsOnTheRun.format,
         :api_kit => "ruby-%s" % VERSION
       }
       super

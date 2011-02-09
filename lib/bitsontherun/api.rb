@@ -6,13 +6,13 @@ module BitsOnTheRun
     
     def method(method, params = {})
       if params.include?(:api_format)
-        raise ArgumentError("Params hash should not include :api_format, use BitsOnTheRun::Configuration.format instead")
+        raise ArgumentError("Params hash should not include :api_format")
       end
       if params.include?(:api_key)
-        raise ArgumentError("Params hash should not include :api_key, use BitsOnTheRun::Configuration.key instead")
+        raise ArgumentError("Params hash should not include :api_key, use BitsOnTheRun.key instead")
       end
       if params.include?(:api_secret)
-        raise ArgumentError("Params hash should not include :api_secret, use BitsOnTheRun::Configuration.secret instead")
+        raise ArgumentError("Params hash should not include :api_secret, use BitsOnTheRun.secret instead")
       end
       @adapter.method(method, params)
     end

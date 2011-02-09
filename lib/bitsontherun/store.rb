@@ -3,7 +3,7 @@ module BitsOnTheRun
     def initialize
       @response = nil
       @defaults = {
-        :api_format => Configuration.format
+        :api_format => BitsOnTheRun.format
       }
       super
     end

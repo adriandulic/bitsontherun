@@ -13,7 +13,9 @@ module BitsOnTheRun
   autoload :Store,          "bitsontherun/store"
   autoload :Response,       "bitsontherun/response"
   autoload :Parser,         "bitsontherun/parser"
-  
+
+  extend Configuration
+
   class Base
     def initialize
       @params = {}
@@ -37,7 +39,7 @@ module BitsOnTheRun
       
       def build_signature
         signature = escape_params
-        Digest::SHA1.hexdigest(signature + Configuration.secret)
+        Digest::SHA1.hexdigest(signature + BitsOnTheRun.secret)
       end
       
       def escape_params
@@ -59,6 +61,10 @@ module BitsOnTheRun
       adapter.method(method, params)
       adapter.file(filename)
       adapter.execute
+    end
+
+    def configure
+      yield self if block_given?
     end
   end
 end

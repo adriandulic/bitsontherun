@@ -1,5 +1,5 @@
 BitsOnTheRun
-==============
+============
 
 BitsOnTheRun is an implementation of [bitsontherun.com](http://bitsontherun.com) API in Ruby.
 
@@ -17,11 +17,11 @@ And finally run:
 
     bundle install
 
-Add in _config/initializers/bitsontherun.rb_ file:
+For rails app create the _config/initializers/bitsontherun.rb_ file:
 
     # Bitsonthrun configuration
-    BitsOnTheRun::Configuration.key = "your api key"
-    BitsOnTheRun::Configuration.secret = "your api secret"
+    BitsOnTheRun.key = "your api key"
+    BitsOnTheRun.secret = "your api secret"
 
 ## Usage
 
@@ -88,4 +88,3 @@ Find methods:
     response.videos => [<BitsOnTheRun::Response>, <BitsOnTheRun::Response>, ...]
     response.videos.first => <BitsOnTheRun::Response>
     repsonse.videos.first.title => "Video title"
-

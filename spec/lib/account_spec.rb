@@ -5,10 +5,10 @@ describe "API call to retrieve account" do
   
   before do
     @responses = []
-    @responses << BitsOnTheRun::call('accounts/show', :account_key => BitsOnTheRun::Configuration.key)
+    @responses << BitsOnTheRun::call('accounts/show', :account_key => BitsOnTheRun.key)
     
     @manual = BitsOnTheRun::API.new(:call)
-    @manual.method('accounts/show', :account_key => BitsOnTheRun::Configuration.key)
+    @manual.method('accounts/show', :account_key => BitsOnTheRun.key)
     @responses << @manual.execute
   end
   

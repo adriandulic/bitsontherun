@@ -2,21 +2,21 @@ require 'spec_helper'
 
 describe "Configuration" do
   before do
-    @key = BitsOnTheRun::Configuration.key
-    @secret = BitsOnTheRun::Configuration.secret
+    @key = BitsOnTheRun.key
+    @secret = BitsOnTheRun.secret
   end
 
   it "should store configuration information in class attributes" do
-    BitsOnTheRun::Configuration.key    = "your api key"
-    BitsOnTheRun::Configuration.secret = "your api secret"
+    BitsOnTheRun.key    = "your api key"
+    BitsOnTheRun.secret = "your api secret"
 
-    BitsOnTheRun::Configuration.key.should    == "your api key"
-    BitsOnTheRun::Configuration.secret.should == "your api secret"
-    BitsOnTheRun::Configuration.format.should == "json"
+    BitsOnTheRun.key.should    == "your api key"
+    BitsOnTheRun.secret.should == "your api secret"
+    BitsOnTheRun.format.should == "json"
   end
 
   after do
-    BitsOnTheRun::Configuration.key    = @key
-    BitsOnTheRun::Configuration.secret = @secret
+    BitsOnTheRun.key    = @key
+    BitsOnTheRun.secret = @secret
   end
 end
