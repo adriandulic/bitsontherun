@@ -13,7 +13,13 @@ describe "API call to store new video file" do
     @manual.file(@file)
     @responses << @manual.execute
   end
-  
+
+  after do
+    @responses.each do |video|
+      BitsOnTheRun::call('videos/delete', :video_key => video.media.key)
+    end
+  end
+
   it "should contain information about uploaded video" do
     @responses.each do |r|
       r.file(:md5).size.should eql(32)

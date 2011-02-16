@@ -1,3 +1,4 @@
+require 'bitsontherun/version'
 require 'curb'
 require 'cgi'
 require 'uri'
@@ -13,7 +14,6 @@ module BitsOnTheRun
   autoload :Store,          "bitsontherun/store"
   autoload :Response,       "bitsontherun/response"
   autoload :Parser,         "bitsontherun/parser"
-  autoload :Version,        "bitsontherun/version"
 
   extend Configuration
 
@@ -50,6 +50,10 @@ module BitsOnTheRun
       end
   end
   
+  def configure
+    yield self if block_given?
+  end
+
   class << self
     def call(method, params = {})
       adapter = API.new(:call)
@@ -62,10 +66,6 @@ module BitsOnTheRun
       adapter.method(method, params)
       adapter.file(filename)
       adapter.execute
-    end
-
-    def configure
-      yield self if block_given?
     end
   end
 end
