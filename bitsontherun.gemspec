@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = s.name
 
-  s.add_dependency "json", "1.5.1"
-  s.add_dependency "curb", "0.7.10"
+  s.add_dependency "json", ">= 1.4.0"
+  s.add_dependency "curb", ">= 0.7.0"
 
-  s.add_development_dependency "bundler", "1.0.10"
-  s.add_development_dependency "rspec", "2.5.0"
+  s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "rspec", ">= 2.1.0"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
