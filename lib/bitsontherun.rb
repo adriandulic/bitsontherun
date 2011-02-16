@@ -13,7 +13,7 @@ module BitsOnTheRun
   autoload :Store,          "bitsontherun/store"
   autoload :Response,       "bitsontherun/response"
   autoload :Parser,         "bitsontherun/parser"
-  autoload :Version,         "bitsontherun/version"
+  autoload :Version,        "bitsontherun/version"
 
   extend Configuration
 
