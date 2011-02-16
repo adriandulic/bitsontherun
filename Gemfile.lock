@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bitsontherun (0.0.2)
+    bitsontherun (0.1.0)
       curb (>= 0.7.0)
       json (>= 1.4.0)
 
@@ -26,6 +26,4 @@ PLATFORMS
 DEPENDENCIES
   bitsontherun!
   bundler (>= 1.0.0)
-  curb (>= 0.7.0)
-  json (>= 1.4.0)
   rspec (>= 2.1.0)
