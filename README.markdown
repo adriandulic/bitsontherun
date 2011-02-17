@@ -30,24 +30,29 @@ Basic call:
     BitsOnTheRun::call('version') => {:status => "ok", :version => "X.X.X"}
     BitsOnTheRun::call('videos/update', :video_key => 'your video key', :title => 'New title for video').ok? => true
 
-Basic store:
+Basic store (upload a video):
 
     BitsOnTheRun::store('videos/create', 'video.mp4') => {:status => "ok", ...}
+
+Basic store (create a new video object on the plaform to upload the video later):
+
+    BitsOnTheRun::store('videos/create') => {:status => "ok", ...}
+
 
 Extended call methods:
 
     call = BitsOnTheRun::API.new(:call)
     call.method('videos/list')
     call.execute
-    
+
     call = BitsOnTheRun::API.new(:call)
     call.method('videos/show', :video_key => 'your video key')
     call.execute
-    
+
     call = BitsOnTheRun::API.new(:call)
     call.method('videos/update', :video_key => 'your video key', :title => 'New title for video')
     call.execute
-    
+
 Extended store methods:
 
     call = BitsOnTheRun::API.new(:store)
