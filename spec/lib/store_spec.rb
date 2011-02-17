@@ -52,5 +52,11 @@ describe "API call to store new video file" do
         r.link.address.should_not be_empty
       end
     end
+
+    it "should allow to create upload url" do
+      @responses.each do |r|
+        r.upload_url.should == "http://#{r.link.address}/v1/videos/upload?api_format=json&key=#{r.link.query.key}&token=#{r.link.query.token}"
+      end
+    end
   end
 end

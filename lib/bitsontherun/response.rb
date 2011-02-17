@@ -8,6 +8,10 @@ module BitsOnTheRun
         @parsed = Parser::parse(response)
       end
     end
+
+    def upload_url
+      "#{link.protocol}://#{link.address}#{link.path}?api_format=#{BitsOnTheRun.format}&key=#{link.query.key}&token=#{link.query.token}"
+    end
     
     def ok?
       status == "ok"
