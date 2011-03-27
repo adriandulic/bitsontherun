@@ -10,7 +10,7 @@ module BitsOnTheRun
     end
 
     def upload_url
-      "#{link.protocol}://#{link.address}#{link.path}?api_format=#{BitsOnTheRun.format}&key=#{link.query.key}&token=#{link.query.token}"
+      "#{video.link.protocol}://#{video.link.address}#{video.link.path}?api_format=#{BitsOnTheRun.format}&key=#{video.link.query.key}&token=#{video.link.query.token}"
     end
     
     def ok?

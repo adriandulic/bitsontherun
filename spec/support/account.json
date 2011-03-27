@@ -1,0 +1,77 @@
+{
+  "status": "ok",
+  "account": {
+    "conversions": {
+      "templates": [
+        {"default": true, "required": true, "id": 1, "key": "CiavNC6R", "name": "Original"},
+        {"default": true, "required": true, "id": 2, "key": "o03JOeMF", "name": "H.264 320px"},
+        {"default": true, "required": false, "id": 3, "key": "g5R07owt", "name": "H.264 480px"},
+        {"default": true, "required": false, "id": 4, "key": "rHIAAuq2", "name": "H.264 720px"},
+        {"default": true, "required": false, "id": 5, "key": "ZwnFpS58", "name": "H.264 1080px"},
+        {"default": false, "required": true, "id": 6, "key": "x3YslXdM", "name": "Passthrough"},
+        {"default": true, "required": true, "id": 7, "key": "y1JqqUgg", "name": "AAC Audio"}
+      ],
+      "original": {
+        "delete": false
+      }
+    },
+    "restrictions": {
+      "embeds": {
+        "allow": true
+      },
+      "downloads": {
+        "allow": true
+      }
+    },
+    "videos": {
+      "total": 0
+    },
+    "name": {
+      "alternative": null,
+      "last": null,
+      "first": null
+    },
+    "parent": {
+      "key": "key"
+    },
+    "deleted": null,
+    "registered": 1297093821,
+    "state": {
+      "current": "blocked",
+      "changed": 1299721051,
+      "next": {
+        "states": ["suspended", "normal"],
+        "default": "suspended",
+        "change": 1302313051
+      }
+    },
+    "custom": {
+      "ltv-referral-code": "",
+      "ltv-referral-data": "",
+      "ltv-last-promo": ""
+    },
+    "content": {
+      "used": "1",
+      "limit": "1000000000"
+    },
+    "secret": "secret",
+    "role": "administrator",
+    "subaccounts": {
+      "total": 0
+    },
+    "key": "key",
+    "cdn": {
+      "system_wide": true,
+      "type": "bitgravity",
+      "name": "BitGravity",
+      "protocol": "rtmp"
+    },
+    "traffic": {
+      "used": "0",
+      "limit": "1000000000"
+    },
+    "login": "adulic@gmail.com",
+    "type": "user",
+    "email": "adulic@gmail.com"
+  }
+}

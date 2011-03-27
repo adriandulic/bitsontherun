@@ -1,42 +1,38 @@
 module BitsOnTheRun
   class Store < Base
-    def initialize
-      @response = nil
-      @defaults = {
-        :api_format => BitsOnTheRun.format
-      }
-      super
-    end
+    attr_reader :store_url
     
     def file(filename)
       @filename = filename.to_s
     end
     
     def execute
-      build_token
+      build_store_url
       file = Curl::PostField.file("file", @filename)
-      response = Curl::Easy.http_post(build_store_url, file) do |curl|
+      response = Curl::Easy.http_post(@store_url, file) do |curl|
         curl.multipart_form_post = true
       end.body_str
       Response.new(response)
     end
     
+    def build_store_url
+      unless @store_url
+        response = build_token
+        protocol = response.find(:video, :link, :protocol)
+        address = response.find(:video, :link, :address)
+        path = response.find(:video, :link, :path)
+        @defaults[:key] = response.find(:video, :link, :query, :key)
+        @defaults[:token] = response.find(:video, :link, :query, :token)
+        @store_url ||= URI.escape("#{protocol}://#{address}#{path}?#{escape_params}")
+      end
+    end
+    
     private
+    
       def build_token
         call = API.new(:call)
         call.method(@method, @params)
-        @response = call.execute
-      end
-      
-      def build_store_url
-        protocol = @response.find(:link, :protocol)
-        address = @response.find(:link, :address)
-        path = @response.find(:link, :path)
-        
-        @defaults[:key] = @response.find(:link, :query, :key)
-        @defaults[:token] = @response.find(:link, :query, :token)
-      
-        URI.escape("#{protocol}://#{address}#{path}?#{escape_params}")
+        call.execute
       end
   end
 end

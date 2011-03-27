@@ -8,22 +8,28 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    curb (0.7.10)
+    addressable (2.2.4)
+    crack (0.1.8)
+    curb (0.7.15)
     diff-lcs (1.1.2)
     json (1.5.1)
-    rspec (2.4.0)
-      rspec-core (~> 2.4.0)
-      rspec-expectations (~> 2.4.0)
-      rspec-mocks (~> 2.4.0)
-    rspec-core (2.4.0)
-    rspec-expectations (2.4.0)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.4.0)
+    rspec-mocks (2.5.0)
+    webmock (1.6.2)
+      addressable (>= 2.2.2)
+      crack (>= 0.1.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bitsontherun!
-  bundler (>= 1.0.0)
-  rspec (>= 2.1.0)
+  bundler (~> 1.0)
+  rspec (~> 2.0)
+  webmock (~> 1.6)

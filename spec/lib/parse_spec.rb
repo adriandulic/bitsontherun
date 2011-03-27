@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Response JSON parser" do
   before do
-    @json = '{"status": "ok", "other": {"name": "Valid"}}'
+    @json = File.open('spec/support/test.json').read
   end
   
   it "should parse JSON string to Hash" do
@@ -10,8 +10,8 @@ describe "Response JSON parser" do
     output.should be_instance_of Hash
     output.should have_key :status
     output.should have_key :other
-    output[:status].should eql("ok")
+    output[:status].should == "ok"
     output[:other].should have_key :name
-    output[:other][:name].should eql("Valid")
+    output[:other][:name].should == "Valid"
   end
 end

@@ -1,6 +1,8 @@
 require 'bitsontherun/version'
+require 'digest/sha1'
+require 'net/http'
+require 'json'
 require 'curb'
-require 'cgi'
 require 'uri'
 
 module BitsOnTheRun
@@ -20,18 +22,24 @@ module BitsOnTheRun
   class Base
     def initialize
       @params = {}
+      @defaults = {
+        :api_nonce => "%08d" % rand(99999999),
+        :api_timestamp => Time.now.to_i,
+        :api_key => BitsOnTheRun.key,
+        :api_format => BitsOnTheRun.format,
+        :api_kit => "ruby-%s" % VERSION
+      }
+      super
     end
     
     def method(method, params = {})
       @method = method.to_s
       @params.merge!(params.to_hash)
+      self
     end
     
     protected
-      def build_url
-        URI.escape("#{PROTOCOL}://#{URL}/#{API_VERSION}/#{@method}?#{build_params}")
-      end
-      
+    
       def build_params
         @defaults.merge!(@params)
         @defaults[:api_signature] = build_signature
