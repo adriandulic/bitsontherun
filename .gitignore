@@ -2,4 +2,3 @@ pkg/*
 *.gem
 .bundle
 .rspec
-nbproject
