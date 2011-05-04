@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "video": {
+    "key": "vtQmcboj",
+    "link": {
+      "protocol": "http",
+      "address": "upload.bitsontherun.com",
+      "path": "/v1/videos/upload",
+      "query": {
+        "key": "vtQmcboj",
+        "token": "e2bbad0fd889d5d2e30047596cfe3789778257d2"
+      }
+    }
+  }
+}

@@ -1,5 +1,3 @@
-require 'json'
-
 module BitsOnTheRun
   module Parser
     extend self

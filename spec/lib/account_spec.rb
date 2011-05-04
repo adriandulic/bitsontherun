@@ -5,22 +5,22 @@ describe "API call to retrieve account" do
   
   before do
     @responses = []
-    @responses << BitsOnTheRun::call('accounts/show', :account_key => BitsOnTheRun.key)
-    
-    @manual = BitsOnTheRun::API.new(:call)
-    @manual.method('accounts/show', :account_key => BitsOnTheRun.key)
-    @responses << @manual.execute
+    @call = stub_botr_request(:call, 'account', 'accounts/show', :account_key => BitsOnTheRun.key)
+    @responses << @call.execute
   end
   
   it "should contain information about specific account" do
     @responses.each do |r|
-      r.find(:account, :cdn, :name).should be_instance_of String
-      r.find([:account, :cdn, :name]).should be_instance_of String
-      r.find(:account, [:cdn, :name]).should be_instance_of String
-      r.account(:cdn, :name).should be_instance_of String
-      r.account([:cdn, :name]).should be_instance_of String
-      r.account.cdn(:name).should be_instance_of String
-      r.account.cdn.name.should be_instance_of String
+      r.find(:account, :cdn, :name).should == "BitGravity"
+      r.find([:account, :cdn, :name]).should == "BitGravity"
+      r.find(:account, [:cdn, :name]).should == "BitGravity"
+      r.account(:cdn, :name).should == "BitGravity"
+      r.account([:cdn, :name]).should == "BitGravity"
+      r.account.cdn(:name).should == "BitGravity"
+      r.account.cdn.name.should == "BitGravity"
+      r.account.key.should == "key"
+      r.account.secret.should == "secret"
+      r.account.type.should == "user"
     end
   end
 end
